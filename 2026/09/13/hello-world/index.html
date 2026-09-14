@@ -20,11 +20,11 @@
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
-	<meta name="theme-color" content="#5e72e4">
-	<meta name="theme-color-rgb" content="94,114,228">
-	<meta name="theme-color-origin" content="#5e72e4">
+	<meta name="theme-color" content="#90deb8">
+	<meta name="theme-color-rgb" content="144,222,184">
+	<meta name="theme-color-origin" content="#90deb8">
 	<meta name="argon-enable-custom-theme-color" content="true">
-	<meta name="theme-card-radius" content="4">
+	<meta name="theme-card-radius" content="15">
 	<meta name="theme-version" content="1.0.2">
 	<link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
 	<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
@@ -68,11 +68,11 @@
 				},
 			
 			disable_pjax: false,
-			headroom: false
+			headroom: true
 		}
 	</script>
 	<script>
-		var darkmodeAutoSwitch = "false";
+		var darkmodeAutoSwitch = "system";
 		function setDarkmode(enable){
 			if (enable == true){
 				$("html").addClass("darkmode");
@@ -153,25 +153,117 @@
 	
 <meta name="generator" content="Hexo 7.3.0"></head>
 
+<link rel="stylesheet" href="/css/music-player.css">
+<style>
+/* 强制 Banner 全屏 */
+#banner_container,
+.banner {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    margin-bottom: 0 !important;
+}
+
+/* 让 Banner 内部容器也撑满 */
+.banner-container {
+    height: 100% !important;
+    min-height: 100% !important;
+}
+
+/* 标题垂直居中 */
+.banner-title {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+/* 中文衬线阅读字体 */
+.use-serif p, .use-serif span, .use-serif div {
+  font-family: 'Noto Serif SC', serif !important;
+}
+/* 卡片悬停上浮 */
+.card {
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.card:hover {
+transform: translateY(-4px);
+box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+}
+/* 友链卡片 */
+.links-grid { margin-top: 20px; }
+.link-card {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+}
+.link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.link-card a { text-decoration: none; color: inherit; display: block; }
+.link-card .card-body { padding: 20px 15px; }
+.link-avatar {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+    border: 2px solid #5e72e4;
+}
+.link-card .card-title { font-size: 1rem; margin-bottom: 5px; font-weight: 600; }
+.link-card .card-text { font-size: 0.85rem; margin-bottom: 0; word-break: break-all; }
+
+/* 暗色模式适配 */
+html.darkmode .link-card {
+    background-color: #2d2d2d;
+    border-color: #444;
+}
+html.darkmode .link-card .card-text { color: #aaa; }
+
+/* 暗色模式卡片微调 */
+html.darkmode .card-header,
+html.darkmode .card-footer {
+    background-color: transparent !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+html.darkmode .card-footer {
+    border-top-color: rgba(255, 255, 255, 0.1) !important;
+}
+html.darkmode .card {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+# 夜间模式微调 
+#html.darkmode body {
+  background: #1e1e1e !important;
+    #}
+    #html.darkmode .card {
+  background: #2a2a2a !important;
+    #}
+
+</style>
 
 
 <style id="themecolor_css">
 	
 	:root{
-		--themecolor: #5e72e4;
-		--themecolor-dark0: #5368E2;
-		--themecolor-dark: #485FE0;
-		--themecolor-dark2: #324CDD;
-		--themecolor-dark3: #233DD2;
-		--themecolor-light: #8A98EB;
-		--themecolor-rgbstr: 94,114,228;
+		--themecolor: #90deb8;
+		--themecolor-dark0: #86DBB2;
+		--themecolor-dark: #7CD8AB;
+		--themecolor-dark2: #69D29F;
+		--themecolor-dark3: #55CC92;
+		--themecolor-light: #B7EAD1;
+		--themecolor-rgbstr: 144,222,184;
 		--themecolor-gradient: linear-gradient(150deg,var(--themecolor-light) 15%, var(--themecolor) 70%, var(--themecolor-dark0) 94%);
 
 	}
 </style>
 <style id="theme_cardradius_css">
 	:root{
-		--card-radius: 4px;
+		--card-radius: 15px;
 	}
 </style>
 
@@ -219,15 +311,45 @@
 										<li class='nav-item dropdown'>
 											<a href='' class='nav-link' onclick='return false;' data-toggle='dropdown' no-pjax>
 												<i class='ni ni-book-bookmark d-lg-none'></i>
-												<span class='nav-link-inner--text'>二级菜单</span>
+												<span class='nav-link-inner--text'>返回主站</span>
 											</a>
 											
 													<div class="dropdown-menu">
 														
-															<a href='/' class='dropdown-item'>归档</a>
-														
 													</div>
 												
+										</li>
+									
+										<li class='nav-item'>
+											<a href='/tags' class='nav-link' >
+												<i class='ni ni-book-bookmark d-lg-none'></i>
+												<span class='nav-link-inner--text'>标签</span>
+											</a>
+											
+										</li>
+									
+										<li class='nav-item'>
+											<a href='/archives-timeline' class='nav-link' >
+												<i class='ni ni-book-bookmark d-lg-none'></i>
+												<span class='nav-link-inner--text'>归档时间轴</span>
+											</a>
+											
+										</li>
+									
+										<li class='nav-item'>
+											<a href='/friend-link' class='nav-link' >
+												<i class='ni ni-book-bookmark d-lg-none'></i>
+												<span class='nav-link-inner--text'>友链</span>
+											</a>
+											
+										</li>
+									
+										<li class='nav-item'>
+											<a href='/about' class='nav-link' >
+												<i class='ni ni-book-bookmark d-lg-none'></i>
+												<span class='nav-link-inner--text'>关于</span>
+											</a>
+											
 										</li>
 									
 							</ul>
@@ -289,7 +411,7 @@
 	
 	<div id="banner_container" class="banner-container container text-center">
 		
-			<div class="banner-title text-white"><span class="banner-title-inner">seraphina-blog</span>
+			<div class="banner-title text-white" data-text="seraphina-blog" data-interval=""><span class="banner-title-inner">&nbsp;</span>
 		
 		</div>
 	</div>
@@ -317,7 +439,7 @@
 			background-position: center;
 			background-size: cover;
 			background-repeat: no-repeat;
-			opacity: 1;
+			opacity: 0.8;
 			transition: opacity .5s ease;
 		}
 		html.darkmode #content:before{
@@ -341,7 +463,7 @@
 				transition: opacity .5s ease;
 			}
 			html.darkmode #content:after {
-				opacity: 1;
+				opacity: 0.8;
 			}
 			html.darkmode #content:before {
 				opacity: 0;
@@ -812,6 +934,48 @@
 </noscript>
 </body>
 
+<div id="musicPlayer" class="music-player">
+  <div class="music-cover" id="musicCoverWrap">
+    <img id="musicCover" alt="cover">
+    <div class="music-cover-placeholder" id="musicCoverPlaceholder">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
+    </div>
+  </div>
+  <div class="music-info">
+    <div class="music-title" id="musicTitle">未播放</div>
+    <div class="music-artist" id="musicArtist">—</div>
+  </div>
+  <div class="music-controls">
+    <button class="music-btn" id="musicPrev" aria-label="上一首">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zM9.5 12l8.5 6V6z"/></svg>
+    </button>
+    <button class="music-btn music-play-btn" id="musicPlay" aria-label="播放/暂停">
+      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+    </button>
+    <button class="music-btn" id="musicNext" aria-label="下一首">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg>
+    </button>
+  </div>
+  <div class="music-progress-wrap" id="musicProgressWrap">
+    <div class="music-progress-bar" id="musicProgressBar"></div>
+  </div>
+  <audio id="musicAudio" preload="none"></audio>
+</div>
+
+<script>
+window.musicPlayerData = {
+  playlist: [
+    {
+      title: "歌曲名",
+      artist: "歌手名",
+      url: "/music/song.mp3",
+      cover: "/images/cover.jpg"
+    }
+  ]
+};
+</script>
+<script src="/js/music-player.js"></script>
 
 
 </html>
