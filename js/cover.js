@@ -10,9 +10,12 @@
         if (!isHomePage()) {
             document.documentElement.classList.remove('banner-as-cover');
             document.documentElement.classList.remove('is-home');
+            var existingArrow = document.querySelector('.cover-scroll-down');
+            if (existingArrow) existingArrow.remove();
             return;
         }
 
+        // 添加类名，触发 CSS
         document.documentElement.classList.add('banner-as-cover');
         document.documentElement.classList.add('is-home');
 
@@ -25,6 +28,7 @@
             arrow.innerHTML = '<i class="fa fa-angle-down" aria-hidden="true"></i>';
             bannerContainer.appendChild(arrow);
 
+            // 点击箭头平滑滚动
             arrow.addEventListener('click', function(e) {
                 e.preventDefault();
                 var content = document.getElementById('content');
