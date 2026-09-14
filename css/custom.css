@@ -1,0 +1,173 @@
+/* ============================================
+   全屏 Banner 封面
+   ============================================ */
+html.banner-as-cover.is-home .banner {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    margin-bottom: 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Banner 内部容器撑满、内容垂直居中 */
+html.banner-as-cover.is-home .banner-container {
+    height: 100% !important;
+    min-height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+    padding: 0 20px !important;
+}
+
+/* 标题居中 */
+html.banner-as-cover.is-home .banner-title {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    text-align: center !important;
+}
+
+html.banner-as-cover.is-home .banner-subtitle {
+    text-align: center !important;
+    margin-top: 16px !important;
+    font-size: 18px !important;
+    opacity: 0.9 !important;
+    letter-spacing: 1px !important;
+}
+
+/* 内容区域：全屏模式下取消负 margin */
+html.banner-as-cover.is-home #content {
+    margin-top: 0 !important;
+    padding-top: 40px !important;
+}
+
+/* 隐藏侧边栏，实现单栏布局 */
+html.banner-as-cover.is-home #leftbar,
+html.banner-as-cover.is-home #rightbar {
+    display: none !important;
+}
+
+html.banner-as-cover.is-home #primary {
+    width: 100% !important;
+    float: none !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+html.banner-as-cover.is-home #main {
+    padding: 0 !important;
+}
+
+/* ============================================
+   向下滚动箭头
+   ============================================ */
+.cover-scroll-down {
+    display: block !important;
+    width: max-content !important;
+    color: #fff !important;
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 30px !important;
+    transform: translateX(-50%) !important;
+    cursor: pointer !important;
+    font-size: 36px !important;
+    transition: opacity 0.3s ease !important;
+    z-index: 10 !important;
+    text-decoration: none !important;
+}
+
+html:not(.is-home) .cover-scroll-down {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.cover-scroll-down.hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.cover-scroll-down i {
+    animation: arrowBounce 2s infinite !important;
+    font-size: 36px !important;
+}
+
+@keyframes arrowBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+        opacity: 0.85;
+    }
+    40% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    60% {
+        transform: translateY(-5px);
+        opacity: 0.95;
+    }
+}
+
+/* ============================================
+   友链卡片
+   ============================================ */
+.links-grid { margin-top: 20px; }
+
+.link-card {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+}
+
+.link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.link-card a { text-decoration: none; color: inherit; display: block; }
+.link-card .card-body { padding: 20px 15px; }
+
+.link-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+    border: 2px solid #5e72e4;
+}
+
+.link-card .card-title { font-size: 1rem; margin-bottom: 5px; font-weight: 600; }
+.link-card .card-text { font-size: 0.85rem; margin-bottom: 0; word-break: break-all; }
+
+/* ============================================
+   暗色模式微调
+   ============================================ */
+html.darkmode .card-header,
+html.darkmode .card-footer {
+    background-color: transparent !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.darkmode .card-footer {
+    border-top-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.darkmode .card {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+html.darkmode .link-card {
+    background-color: #2d2d2d;
+    border-color: #444;
+}
+
+html.darkmode .link-card .card-text { color: #aaa; }
