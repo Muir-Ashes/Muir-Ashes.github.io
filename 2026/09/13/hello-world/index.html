@@ -20,11 +20,11 @@
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
-	<meta name="theme-color" content="#90deb8">
-	<meta name="theme-color-rgb" content="144,222,184">
-	<meta name="theme-color-origin" content="#90deb8">
+	<meta name="theme-color" content="#5e72e4">
+	<meta name="theme-color-rgb" content="94,114,228">
+	<meta name="theme-color-origin" content="#5e72e4">
 	<meta name="argon-enable-custom-theme-color" content="true">
-	<meta name="theme-card-radius" content="15">
+	<meta name="theme-card-radius" content="4">
 	<meta name="theme-version" content="1.0.2">
 	<link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
 	<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
@@ -68,11 +68,11 @@
 				},
 			
 			disable_pjax: false,
-			headroom: true
+			headroom: false
 		}
 	</script>
 	<script>
-		var darkmodeAutoSwitch = "system";
+		var darkmodeAutoSwitch = "false";
 		function setDarkmode(enable){
 			if (enable == true){
 				$("html").addClass("darkmode");
@@ -153,46 +153,25 @@
 	
 <meta name="generator" content="Hexo 7.3.0"></head>
 
-<style>
-/* 中文衬线阅读字体 */
-.use-serif p, .use-serif span, .use-serif div {
-  font-family: 'Noto Serif SC', serif !important;
-}
-/* 卡片悬停上浮 */
-.card {
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-.card:hover {
-transform: translateY(-4px);
-box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
-}
-/* 夜间模式微调 */
-html.darkmode body {
-  background: #1e1e1e !important;
-}
-html.darkmode .card {
-  background: #2a2a2a !important;
-}
-</style>
 
 
 <style id="themecolor_css">
 	
 	:root{
-		--themecolor: #90deb8;
-		--themecolor-dark0: #86DBB2;
-		--themecolor-dark: #7CD8AB;
-		--themecolor-dark2: #69D29F;
-		--themecolor-dark3: #55CC92;
-		--themecolor-light: #B7EAD1;
-		--themecolor-rgbstr: 144,222,184;
+		--themecolor: #5e72e4;
+		--themecolor-dark0: #5368E2;
+		--themecolor-dark: #485FE0;
+		--themecolor-dark2: #324CDD;
+		--themecolor-dark3: #233DD2;
+		--themecolor-light: #8A98EB;
+		--themecolor-rgbstr: 94,114,228;
 		--themecolor-gradient: linear-gradient(150deg,var(--themecolor-light) 15%, var(--themecolor) 70%, var(--themecolor-dark0) 94%);
 
 	}
 </style>
 <style id="theme_cardradius_css">
 	:root{
-		--card-radius: 15px;
+		--card-radius: 4px;
 	}
 </style>
 
@@ -240,45 +219,15 @@ html.darkmode .card {
 										<li class='nav-item dropdown'>
 											<a href='' class='nav-link' onclick='return false;' data-toggle='dropdown' no-pjax>
 												<i class='ni ni-book-bookmark d-lg-none'></i>
-												<span class='nav-link-inner--text'>返回主站</span>
+												<span class='nav-link-inner--text'>二级菜单</span>
 											</a>
 											
 													<div class="dropdown-menu">
 														
+															<a href='/' class='dropdown-item'>归档</a>
+														
 													</div>
 												
-										</li>
-									
-										<li class='nav-item'>
-											<a href='/tags' class='nav-link' >
-												<i class='ni ni-book-bookmark d-lg-none'></i>
-												<span class='nav-link-inner--text'>标签</span>
-											</a>
-											
-										</li>
-									
-										<li class='nav-item'>
-											<a href='/archives-timeline' class='nav-link' >
-												<i class='ni ni-book-bookmark d-lg-none'></i>
-												<span class='nav-link-inner--text'>归档时间轴</span>
-											</a>
-											
-										</li>
-									
-										<li class='nav-item'>
-											<a href='/friend-link' class='nav-link' >
-												<i class='ni ni-book-bookmark d-lg-none'></i>
-												<span class='nav-link-inner--text'>友链</span>
-											</a>
-											
-										</li>
-									
-										<li class='nav-item'>
-											<a href='/about' class='nav-link' >
-												<i class='ni ni-book-bookmark d-lg-none'></i>
-												<span class='nav-link-inner--text'>关于</span>
-											</a>
-											
 										</li>
 									
 							</ul>
@@ -340,7 +289,7 @@ html.darkmode .card {
 	
 	<div id="banner_container" class="banner-container container text-center">
 		
-			<div class="banner-title text-white" data-text="seraphina-blog" data-interval=""><span class="banner-title-inner">&nbsp;</span>
+			<div class="banner-title text-white"><span class="banner-title-inner">seraphina-blog</span>
 		
 		</div>
 	</div>
@@ -368,7 +317,7 @@ html.darkmode .card {
 			background-position: center;
 			background-size: cover;
 			background-repeat: no-repeat;
-			opacity: 0.8;
+			opacity: 1;
 			transition: opacity .5s ease;
 		}
 		html.darkmode #content:before{
@@ -392,7 +341,7 @@ html.darkmode .card {
 				transition: opacity .5s ease;
 			}
 			html.darkmode #content:after {
-				opacity: 0.8;
+				opacity: 1;
 			}
 			html.darkmode #content:before {
 				opacity: 0;
