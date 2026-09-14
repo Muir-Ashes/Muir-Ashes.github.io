@@ -24,7 +24,7 @@
 	<meta name="theme-color-rgb" content="94,114,228">
 	<meta name="theme-color-origin" content="#5e72e4">
 	<meta name="argon-enable-custom-theme-color" content="true">
-	<meta name="theme-card-radius" content="4">
+	<meta name="theme-card-radius" content="15">
 	<meta name="theme-version" content="1.0.2">
 	<link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
 	<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
@@ -68,11 +68,11 @@
 				},
 			
 			disable_pjax: false,
-			headroom: false
+			headroom: true
 		}
 	</script>
 	<script>
-		var darkmodeAutoSwitch = "false";
+		var darkmodeAutoSwitch = "time";
 		function setDarkmode(enable){
 			if (enable == true){
 				$("html").addClass("darkmode");
@@ -171,7 +171,7 @@
 </style>
 <style id="theme_cardradius_css">
 	:root{
-		--card-radius: 4px;
+		--card-radius: 15px;
 	}
 </style>
 
@@ -317,7 +317,7 @@
 			background-position: center;
 			background-size: cover;
 			background-repeat: no-repeat;
-			opacity: 1;
+			opacity: 0.8;
 			transition: opacity .5s ease;
 		}
 		html.darkmode #content:before{
@@ -341,7 +341,7 @@
 				transition: opacity .5s ease;
 			}
 			html.darkmode #content:after {
-				opacity: 1;
+				opacity: 0.8;
 			}
 			html.darkmode #content:before {
 				opacity: 0;
