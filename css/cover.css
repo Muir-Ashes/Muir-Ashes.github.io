@@ -27,7 +27,7 @@ html.is-home.banner-as-cover #content {
 }
 
 /* 4. 隐藏侧边栏，实现单栏布局 */
-html.is-home.banner-as-cover #leftbar,
+/*html.is-home.banner-as-cover #leftbar,
 html.is-home.banner-as-cover #rightbar {
     display: none !important;
 }
@@ -41,7 +41,7 @@ html.is-home.banner-as-cover #primary {
 
 html.is-home.banner-as-cover #main {
     padding: 0 !important;
-}
+} */
 
 /* 5. 向下箭头 */
 .cover-scroll-down {
