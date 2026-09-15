@@ -74,7 +74,7 @@
     // ============================================
     // 5. 随机文章缩略图
     // ============================================
-    function randomThumbnails() {
+/*    function randomThumbnails() {
         var cards = document.querySelectorAll(
             '#main article.post, #main article.post-preview, .post-preview'
         );
@@ -103,7 +103,46 @@
             }
         });
     }
+*/
+    
+    function randomThumbnails() {
+    var cards = document.querySelectorAll(
+        '#main article.post, #main article.post-preview, .post-preview'
+    );
+    if (cards.length === 0) return;
 
+    cards.forEach(function(card) {
+        var img = getRandomImage('thumbnails');
+        if (!img) return;
+
+        var thumb = card.querySelector('.post-thumbnail');
+
+        if (!thumb) {
+            // 卡片没有缩略图元素，动态创建一个
+            var header = card.querySelector('.post-header') || card;
+            var newThumb = document.createElement('img');
+            newThumb.className = 'post-thumbnail lazyload-loaded';
+            newThumb.src = img;
+            newThumb.style.width = '100%';
+            newThumb.style.height = '200px';
+            newThumb.style.objectFit = 'cover';
+            newThumb.style.borderRadius = 'var(--card-radius, 8px)';
+            newThumb.style.marginBottom = '20px';
+            newThumb.style.display = 'block';
+            header.insertBefore(newThumb, header.firstChild);
+        } else {
+            // 已有缩略图，替换它
+            if (thumb.tagName === 'IMG') {
+                thumb.src = img;
+                thumb.classList.add('lazyload-loaded');
+                thumb.style.opacity = '1';
+            } else {
+                thumb.style.setProperty('background-image', 'url("' + img + '")', 'important');
+            }
+        }
+    });
+}    
+	
     // ============================================
     // 6. 初始化
     // ============================================
