@@ -62,7 +62,7 @@
     // ============================================
     // 4. 随机头像
     // ============================================
-    function randomAvatar() {
+/*    function randomAvatar() {
         var avatar = document.getElementById('leftbar_overview_author_image');
         if (!avatar) return;
         var img = getRandomImage('avatars');
@@ -70,6 +70,25 @@
             avatar.style.setProperty('background-image', 'url("' + img + '")', 'important');
         }
     }
+*/
+
+      function randomAvatar() {
+    var avatar = document.getElementById('leftbar_overview_author_image');
+    if (!avatar) return;
+    var img = getRandomImage('avatars');
+    if (!img) return;
+
+    if (avatar.tagName === 'IMG') {
+        // 头像是 <img> 标签，改 src
+        avatar.src = img;
+        avatar.classList.add('loaded');
+        avatar.style.opacity = '1';
+    } else {
+        // 头像是 <div>，改背景图
+        avatar.style.setProperty('background-image', 'url("' + img + '")', 'important');
+    }
+}	
+
 
     // ============================================
     // 5. 随机文章缩略图

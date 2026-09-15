@@ -37,7 +37,7 @@
                 title: "歌曲名",
                 artist: "歌手名",
                 url: "/music/song.mp3",
-                cover: "/images/cover.jpg"
+                cover: "/images/covers/cover1.jpg"
             }
         ]
     };
